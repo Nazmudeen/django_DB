@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="add" method="POST">
+        {%csrf_token%}
+        <input type="text" name="username" placeholder="enter name"><br>        
+        <input type="text" name="useraddress" placeholder="enter addres" style="height: 80px; width: 200px; margin-top: 2%;" ><br>
+        <input type="submit" name="btn" value="add" style="margin-top:1% ;">
+        {{msg}}
+    </form>
+
+    <form action="display" method="POST">
+        {%csrf_token%}
+        <table border="1">
+            <tr>
+                <td>employee id</td><td>Name</td><td>Address</td>
+            </tr>
+            {%for i in emp %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.address}}</td>
+            </tr>
+            {% endfor %}
+
+        </table><br>
+        <input type="submit" name="btn" value="display">
+    </form>
+    <form action="delete" method="POST"> 
+        {%csrf_token%}
+       employee name: <input type="text" name="username"><br>
+       <input type="submit" value="delete"><br>
+       {{msg}}
+
+    </form>
+
+    <form action="update" method="POST">
+        {%csrf_token%}
+        oldname: <input type="text" name="oldname"><br>
+        newname: <input type="text" name="newname"><br>
+        <input type="submit" name="btn" value="update">
+        {{msg1}}
+
+
+
+
+
+    </form>
+
+</body>
+</html>
