@@ -31,7 +31,7 @@ def display(request):
 #variable=employee.objects.get(id=1)
 #Name=request.POST['name']
 #variable=employee.objects.filter(name=Name)
-
+    
 def delete(request):
     Name=request.POST["username"]
     empdtls=employee.objects.filter(name=Name)
